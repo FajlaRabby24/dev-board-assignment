@@ -33,7 +33,76 @@
 
 <body class="bg-[#f4f7ff] font-poppins py-5">
     
-
+    <header class="max-w-screen-2xl mx-auto mb-5">
+        <!-- nav  -->
+        <nav class="bg-white rounded-xl flex items-center justify-between px-6 py-3 shadow-sm">
+            <!-- nav logo/ left  -->
+            <div class="flex items-center gap-1">
+                <img src="./assets/logo.png" alt="logo">
+                <h3 class="text-3xl">Dev<span class="font-bold">Board</span></h3>
+            </div>
+            <!-- nav right  -->
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-4 justify-between bg-[#f4f7ff] rounded-full px-6 py-3">
+                    <img src="./assets/checkbox.png" alt="checkbox">
+                    <h3 class="text-2xl font-bold" id="checkbox-count">23</h3>
+                </div>
+                <div>
+                    <img class="cursor-pointer" src="./assets/theme-btn.png" alt="theme" id="change-theme">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- main section start  -->
+    <div class="flex gap-4 items-stretch justify-between max-w-screen-2xl mx-auto ">
+        <!-- main  -->
+        <main class="w-full bg-white rounded-xl px-6 pt-7 pb-5 shadow-sm">
+            <!-- top row container -->
+            <div class="flex items-center gap-4 pb-7 justify-between border-b-2 border-dashed">
+                <!-- first column  -->
+                <div class="w-1/3 px-5 py-7 flex items-center gap-4 bg-[#f4f7ff] rounded-xl">
+                    <div class="bg-white p-3 rounded-full">
+                        <img src="./assets/checkbox.png" alt="checkbox">
+                    </div>
+                    <div>
+                        <p class="font-medium  text-gray-600 mb-1">Task Assigned</p>
+                        <h3 class="font-bold text-3xl " id="assined-task">06</h3>
+                    </div>
+                </div>
+                <!-- middle column  -->
+                <div
+                    class="w-2/3 px-10 py-7 flex items-center justify-e gap-7 rounded-xl bg-gradient-to-tr from-[#3752FD] to-[#9BA8F8] cursor-pointer" id="discover">
+                    <img class="border-2 border-gray-400 border-dashed  w-14" src="./assets/board.png" alt="board">
+                    <h3 class="text-white text-2xl font-medium">Discover Something <br> New Today!</h3>
+                </div>
+                <!-- last column  -->
+                <div class="w-1/3 px-5 py-8  flex items-center gap-4 bg-[#f4f7ff] rounded-xl">
+                    <div class="bg-white p-3 rounded-full">
+                        <img src="./assets/calender.png" alt="checkbox">
+                    </div>
+                    <div>
+                        <p class="font-medium  text-gray-600 mb-1" id="bar"></p>
+                        <h3 class="font-bold text-xl " id="date"></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- bottom/card row container -->
+            <div class="pt-7 grid grid-cols-3 gap-5" id="main-card-container">
+                <!-- card  -->
+            </div>
+        </main>
+        <!-- aside  -->
+        <aside class="w-2/5  bg-white rounded-xl px-6 py-3 shadow-sm" >
+            <div class="border-b-2 border-dashed py-4 text-center">
+                <div class="flex items-center gap-3 justify-center mb-4">
+                    <img src="./assets/activity.png" alt="activity">
+                    <h3 class="text-xl font-medium">Activity Log</h3>
+                </div>
+                <button class="btn btn-primary" id="clear-activity-history">Clear History</button>
+            </div>
+            <div id="activity-log-history"></div>
+        </aside>
+    </div>
 
     <script src="./utilities/utilities.js"></script>
     <script src="./js/index.js"></script>

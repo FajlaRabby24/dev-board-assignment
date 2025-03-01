@@ -33,7 +33,26 @@
 
 <body class="bg-[#f4f7ff] font-poppins py-5">
 
-   
+    <header class="max-w-screen-2xl mx-auto">
+        <!-- nav  -->
+        <nav class="bg-white rounded-xl flex items-center justify-between px-6 py-3 shadow-sm">
+            <!-- nav logo/ left  -->
+            <div class="flex items-center gap-1">
+                <img src="./assets/logo.png" alt="logo">
+                <h3 class="text-3xl">Dev<span class="font-bold">Board</span></h3>
+            </div>
+            <!-- nav right  -->
+            <div class="flex items-center gap-4">
+                <button class="btn btn-primary" id="back-to-desk">Back to Desk</button>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-screen-2xl mx-auto ">
+        <h2 class="text-center text-3xl font-semibold my-6">Blogs</h2>
+        <!-- container  -->
+        <div id="blogs-container">
+        </div>
+    </main>
 
     <script src="./utilities/utilities.js"></script>
     <script src="./js/blog.js"></script>
