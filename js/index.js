@@ -44,7 +44,7 @@ selectByGetElementById('date').textContent = date;
 
 
 
-const activitys = [];
+let activitys = [];
 const updateBoard = (event) => {
     const target = event.target;
     const assignedTask = selectByGetElementById('assined-task');
@@ -59,7 +59,7 @@ const updateBoard = (event) => {
         title: target.parentElement.parentElement.children[1].innerText,
         time: time
     });
-    clearActivityHistory();
+    selectByGetElementById('activity-log-history').innerHTML = "";
     for (const activity of activitys) {
         showActivity(activity);
     }
@@ -68,11 +68,13 @@ const updateBoard = (event) => {
     }
 }
 
-const clearActivityHistory = () => {
-    return selectByGetElementById('activity-log-history').innerHTML = "";
-}
 
-selectByGetElementById('clear-activity-history').addEventListener('click', clearActivityHistory);
+
+selectByGetElementById('clear-activity-history')
+    .addEventListener('click', (event) => {
+        activitys = [];
+        selectByGetElementById('activity-log-history').innerHTML = "";
+    });
 
 
 
