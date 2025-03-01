@@ -20,7 +20,7 @@ selectByGetElementById('discover').addEventListener('click', (event) => {
 
 
 
-const randomBodycolor = ['#f4f7ff', '#e7f8d7', '#c8e3cd', '#eba6af', '#d3ae9f'];
+const randomBodycolor = ['#f4f7ff', '#fce4ec', '#ffebcd', '#e0f7fa', '#f0f4c3', '#d1c4e9', '#ffccbc', '#b2dfdb', '#ffebee', '#c5cae9'];
 let selectBodycolorIndex = 0;
 const colorPicker = () => {
     if (selectBodycolorIndex < randomBodycolor.length - 1) {
@@ -63,7 +63,7 @@ const updateBoard = (event) => {
     for (const activity of activitys) {
         showActivity(activity);
     }
-    if (assignedTask.textContent == 0) {
+    if (parseInt(assignedTask.textContent) === 0) {
         alert('Congrates!!! You have completed all the current task.')
     }
 }
@@ -83,6 +83,6 @@ const showActivity = (activity) => {
     const div = document.createElement('div');
     const className = 'bg-[#f4f7ff] px-5 py-3 rounded-lg mt-4 shadow-sm';
     div.setAttribute('class', className);
-    div.innerText = `You have completed the task ${activity.title} At ${activity.time}`;
+    div.textContent = `You have completed the task ${activity.title} At ${activity.time}`;
     selectByGetElementById('activity-log-history').appendChild(div);
 }
