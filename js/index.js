@@ -17,3 +17,70 @@ for (const card of cardArray) {
 selectByGetElementById('discover').addEventListener('click', (event) => {
     window.location = './blog.html'
 })
+
+
+
+const randomBodycolor = ['#f4f7ff', '#e7f8d7', '#c8e3cd', '#eba6af', '#d3ae9f'];
+let selectBodycolorIndex = 0;
+const colorPicker = () => {
+    if (selectBodycolorIndex < randomBodycolor.length - 1) {
+        selectBodycolorIndex++
+    } else {
+        selectBodycolorIndex = 0;
+    }
+}
+selectByGetElementById('change-theme').addEventListener('click', (event) => {
+    colorPicker();
+    document.querySelector('body').style.backgroundColor = randomBodycolor[selectBodycolorIndex];
+})
+
+
+
+const fullDate = new Date().toDateString().toString();
+const bar = fullDate.slice(0, 4);
+const date = fullDate.slice(4);
+selectByGetElementById('bar').textContent = bar;
+selectByGetElementById('date').textContent = date;
+
+
+
+const activitys = [];
+const updateBoard = (event) => {
+    const target = event.target;
+    const assignedTask = selectByGetElementById('assined-task');
+    const checkboxCount = selectByGetElementById('checkbox-count');
+    alert('Board updated Successfully');
+    target.setAttribute('disabled', true);
+    assignedTask.textContent = parseInt(assignedTask.textContent) - 1;
+    checkboxCount.textContent = parseInt(checkboxCount.textContent) + 1;
+    const date = new Date();
+    const time = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
+    activitys.push({
+        title: target.parentElement.parentElement.children[1].innerText,
+        time: time
+    });
+    clearActivityHistory();
+    for (const activity of activitys) {
+        showActivity(activity);
+    }
+    if (assignedTask.textContent == 0) {
+        alert('Congrates!!! You have completed all the current task.')
+    }
+}
+
+const clearActivityHistory = () => {
+    return selectByGetElementById('activity-log-history').innerHTML = "";
+}
+
+selectByGetElementById('clear-activity-history').addEventListener('click', clearActivityHistory);
+
+
+
+
+const showActivity = (activity) => {
+    const div = document.createElement('div');
+    const className = 'bg-[#f4f7ff] px-5 py-3 rounded-lg mt-4 shadow-sm';
+    div.setAttribute('class', className);
+    div.innerText = `You have completed the task ${activity.title} At ${activity.time}`;
+    selectByGetElementById('activity-log-history').appendChild(div);
+}
